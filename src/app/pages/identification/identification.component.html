@@ -1,0 +1,16 @@
+<div *ngIf="outlet.isActivated == false">
+  <div>
+    <h1 class="text-center title">
+      Įveskite mašinos nr.
+    </h1>
+  </div>
+  <div class="car-nr">
+    <input type="text" id="car-number" class="form-control" />
+  </div>
+  <div class="text-center">
+    <button type="button" class="btn btn-primary button-next" routerLink="current-location">
+      Toliau
+    </button>
+  </div>
+</div>
+<router-outlet #outlet="outlet"></router-outlet>
