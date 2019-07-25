@@ -4,13 +4,30 @@
       Įveskite mašinos nr.
     </h1>
   </div>
-  <div class="car-nr">
-    <input type="text" id="car-number" class="form-control" />
-  </div>
-  <div class="text-center">
-    <button type="button" class="btn btn-primary button-next" routerLink="current-location">
-      Toliau
-    </button>
-  </div>
+
+  <form name="carNumberForm" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="form-group car-nr">
+      <input
+        type="text"
+        class="form-control"
+        name="carNumber"
+        [(ngModel)]="model.carNumber"
+        #carNumber="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && carNumber.invalid }"
+        minlength="6"
+        required
+      />
+
+      <div class="invalid-feedback">
+        Numeris negali būti trumpesnis nei 6 simboliai.
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" [disabled]="carNumber.invalid" class="btn btn-primary button-next">
+        Toliau
+      </button>
+    </div>
+  </form>
 </div>
 <router-outlet #outlet="outlet"></router-outlet>

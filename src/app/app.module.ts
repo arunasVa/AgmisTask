@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
+import { CoordsService } from './services/coords.service';
 
 import { AppComponent } from './app.component';
 import { IdentificationComponent } from './pages/identification/identification.component';
 import { CurrentLocationComponent } from './pages/current-location/current-location.component';
 import { TechHelpComponent } from './pages/tech-help/tech-help.component';
-import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,13 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCSkQdGiEyatX84zgCt57RrTRKlhxfowgc'
+    })
   ],
-  providers: [],
+  providers: [CoordsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

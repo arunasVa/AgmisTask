@@ -1,3 +1,29 @@
-<p>
-  tech-help works!
-</p>
+<div class="map-container">
+  <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"
+    [zoomControl]="false"
+  >
+
+    <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-info-window>
+        <strong>My current location</strong>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker
+      *ngFor="let m of markers; let i = index"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+    >
+    </agm-marker>
+  </agm-map>
+
+  <p>
+    tech-help works
+  </p>
+</div>
+
