@@ -1,4 +1,5 @@
 <div class="map-container" *ngIf="outlet.isActivated == false">
+  <h3>Pasirinkite būvimo vietą, tempkite žymeklį, kad jūsų būvimo vieta būtų kuo tikslesnė.</h3>
   <agm-map
     [latitude]="lat"
     [longitude]="lng"
@@ -15,7 +16,7 @@
       (dragEnd)="markerDragEnd(m, $event)"
     >
       <agm-info-window>
-        <strong> {{ carNumber }} masinos nr</strong>
+        <strong> Mano automobilis {{ carNumber }} </strong>
       </agm-info-window>
     </agm-marker>
   </agm-map>

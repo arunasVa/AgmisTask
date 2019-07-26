@@ -5,25 +5,18 @@
     [zoom]="zoom"
     [disableDefaultUI]="false"
     [zoomControl]="false"
+    (mapReady)="onMapReady($event)"
   >
-
     <agm-marker [latitude]="lat" [longitude]="lng">
       <agm-info-window>
-        <strong>My current location</strong>
+        <strong> Mano automobilis {{ carNumber }} </strong>
       </agm-info-window>
     </agm-marker>
-
-    <agm-marker
-      *ngFor="let m of markers; let i = index"
-      [latitude]="m.lat"
-      [longitude]="m.lng"
-      [label]="m.label"
-    >
-    </agm-marker>
   </agm-map>
-
   <p>
-    tech-help works
+    Pas jus atvažiuoja {{ techHelp.name }} {{ techHelp.surname }}
+    {{ techHelp.phone }}
   </p>
-</div>
 
+  <a class="btn btn-primary button-next" href="tel:{{ techHelp.phone }}">Skambinti</a>
+</div>

@@ -1,28 +1,32 @@
 /*First page styles*/
 .title {
-    margin: 2% 0 2% 0;
+  margin: 1% 0 1% 0;
 }
 
 button.center-element {
-    margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .car-nr {
-    margin: 0 auto;
-    width: 15%;
+  margin: 0 auto;
+  width: 25%;
 }
 
 .button-next {
-    margin: 2% 0 2% 0;
-    color: #048520
+  margin: 1% 0 1% 0;
+  color: #048520;
 }
 
-/*Second page (map) styles*/
-/* agm-map {
-    height: 600px;
+@media only screen and (max-width: 320px) {
+  .car-nr {
+    margin: 0 auto;
+    width: 55%;
+  }
 }
 
-.map-container {
-    margin: 3% auto;
-    width: 70%;
-} */
+@media only screen and (min-width: 321px) and (max-width: 1024px) {
+  .car-nr {
+    margin: 0 auto;
+    width: 40%;
+  }
+}

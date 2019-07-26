@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 import { CoordsService } from '../../services/coords.service';
+import { CarIdentificationService } from '../../services/car-identification.service';
 
 @Component({
   selector: 'app-current-location',
@@ -9,12 +10,15 @@ import { CoordsService } from '../../services/coords.service';
 })
 export class CurrentLocationComponent implements OnInit {
 
-  constructor(private coordsService: CoordsService) {
+  constructor(private coordsService: CoordsService, private carIdentificationService: CarIdentificationService) {
   }
 
   ngOnInit() {
+    this.getCarIdentification();
     this.currentLocation();
   }
+
+  carNumber: any = '';
 
   // initial location and map zoom level
   lat: number = 54.898026;
@@ -60,8 +64,13 @@ export class CurrentLocationComponent implements OnInit {
     this.coordsService.addCurrentLocation(currentLoc);
   }
 
+  getCarIdentification() {
+    this.carNumber = this.carIdentificationService.getCarNumber();
+  }
+
   markerDragEnd(m: marker, $event: MouseEvent) {
     this.saveCurrentLocation($event.coords.lat, $event.coords.lng);
+    console.log('event : ', $event.coords.lat, $event.coords.lng)
   }
 
 }

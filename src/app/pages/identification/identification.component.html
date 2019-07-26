@@ -11,8 +11,7 @@
         type="text"
         class="form-control"
         name="carNumber"
-        [(ngModel)]="model.carNumber"
-        #carNumber="ngModel"
+        [(ngModel)]="carNumber"
         [ngClass]="{ 'is-invalid': f.submitted && carNumber.invalid }"
         minlength="6"
         required
